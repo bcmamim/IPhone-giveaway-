@@ -1,0 +1,26 @@
+/* --- Fix extra space + unwanted scrollbar (Original content for external file) --- */
+body { 
+  overflow-x: hidden;          /* prevent horizontal scroll from wide effects */
+}
+
+/* clip oversized glow animations inside buttons */
+.btn,
+.btn-giant {
+  overflow: hidden;            /* IMPORTANT: keeps spark/glow inside */
+}
+
+/* make sure the spark doesn't catch events or extend layout */
+.btn-giant .spark {
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* tighten final section spacing so footer sits snug */
+.section:last-of-type {
+  padding-bottom: 2.25rem;     /* adjust if you want even tighter */
+}
+
+/* (optional) slightly reduce glow canvas to be safe */
+@media (min-width: 0) {
+  .btn-giant .spark { inset: -180% -35%; }
+}
